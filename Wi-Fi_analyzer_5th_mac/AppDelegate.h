@@ -1,8 +1,5 @@
 //
 //  AppDelegate.h
-//  Wi-Fi_analyzer_5th_mac
-//
-//  Created by 上川雅弘 on 2025/07/08.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -49,8 +46,8 @@
     
     switch (status) {
         case kCLAuthorizationStatusNotDetermined:
-            // 初回の場合、許可を要求
-            [self.locationManager requestWhenInUseAuthorization];
+            // macOSでは自動的に許可を要求
+            NSLog(@"位置情報の許可状態: 未決定");
             break;
             
         case kCLAuthorizationStatusDenied:
@@ -59,9 +56,8 @@
             [self showLocationPermissionAlert];
             break;
             
-        case kCLAuthorizationStatusAuthorizedWhenInUse:
         case kCLAuthorizationStatusAuthorizedAlways:
-            // 既に許可されている場合
+            // macOSでは常に許可のみ
             NSLog(@"位置情報の使用が許可されています");
             break;
     }
@@ -87,8 +83,8 @@
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     switch (status) {
-        case kCLAuthorizationStatusAuthorizedWhenInUse:
         case kCLAuthorizationStatusAuthorizedAlways:
+            // macOSでは常に許可のみ
             NSLog(@"位置情報の使用が許可されました");
             break;
             

@@ -1,8 +1,5 @@
 //
 //  ViewController.h
-//  Wi-Fi_analyzer_5th_mac
-//
-//  Created by 上川雅弘 on 2025/07/08.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -72,23 +69,25 @@
 
 - (void)getCurrentWiFiInfo {
     // 現在の接続情報を取得
-    CWInterface *interface = [[self.wifiClient interfaceWithName:nil] interfaceWithName:nil];
-    if (!interface) {
-        // デフォルトインターフェースを取得
-        NSSet *interfaces = [CWWiFiClient interfaceNames];
-        if (interfaces.count > 0) {
-            NSString *interfaceName = [interfaces anyObject];
-            interface = [self.wifiClient interfaceWithName:interfaceName];
-        }
-    }
+    NSSet *interfaceNames = [CWWiFiClient interfaceNames];
     
-    if (interface) {
-        NSString *currentSSID = interface.ssid ?: @"未接続";
-        NSString *currentBSSID = interface.bssid ?: @"未接続";
+    if (interfaceNames.count > 0) {
+        NSString *interfaceName = [interfaceNames anyObject];
+        CWInterface *interface = [self.wifiClient interfaceWithName:interfaceName];
         
+        if (interface) {
+            NSString *currentSSID = interface.ssid ?: @"未接続";
+            NSString *currentBSSID = interface.bssid ?: @"未接続";
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.currentSSIDLabel.stringValue = [NSString stringWithFormat:@"現在のSSID: %@", currentSSID];
+                self.currentBSSIDLabel.stringValue = [NSString stringWithFormat:@"現在のBSSID: %@", currentBSSID];
+            });
+        }
+    } else {
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.currentSSIDLabel.stringValue = [NSString stringWithFormat:@"現在のSSID: %@", currentSSID];
-            self.currentBSSIDLabel.stringValue = [NSString stringWithFormat:@"現在のBSSID: %@", currentBSSID];
+            self.currentSSIDLabel.stringValue = @"現在のSSID: Wi-Fiインターフェースが見つかりません";
+            self.currentBSSIDLabel.stringValue = @"現在のBSSID: Wi-Fiインターフェースが見つかりません";
         });
     }
 }

@@ -27,12 +27,8 @@
     <key>NSPrincipalClass</key>
     <string>NSApplication</string>
     
-    <!-- Wi-Fi情報へのアクセス許可 -->
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>このアプリはWi-Fi情報を取得するために位置情報を使用します。</string>
-    
-    <!-- macOS 10.15以降でのWi-Fi情報アクセス許可 -->
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <!-- macOS用の位置情報許可設定 -->
+    <key>NSLocationUsageDescription</key>
     <string>このアプリはWi-Fi情報を取得するために位置情報を使用します。</string>
     
     <!-- エンタイトルメント -->
