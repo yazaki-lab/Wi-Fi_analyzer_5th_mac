@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		0B231D452E1D3DF000B8E96E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B231D272E1D3DEC00B8E96E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B231D2E2E1D3DEC00B8E96E;
+			remoteInfo = "Wi-Fi_analyzer_5th_mac";
+		};
+		0B231D4F2E1D3DF000B8E96E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B231D272E1D3DEC00B8E96E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B231D2E2E1D3DEC00B8E96E;
+			remoteInfo = "Wi-Fi_analyzer_5th_mac";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0B231D2F2E1D3DEC00B8E96E /* Wi-Fi_analyzer_5th_mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wi-Fi_analyzer_5th_mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B231D442E1D3DF000B8E96E /* Wi-Fi_analyzer_5th_macTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wi-Fi_analyzer_5th_macTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B231D4E2E1D3DF000B8E96E /* Wi-Fi_analyzer_5th_macUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wi-Fi_analyzer_5th_macUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		0B231D312E1D3DEC00B8E96E /* Wi-Fi_analyzer_5th_mac */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Wi-Fi_analyzer_5th_mac";
+			sourceTree = "<group>";
+		};
+		0B231D472E1D3DF000B8E96E /* Wi-Fi_analyzer_5th_macTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Wi-Fi_analyzer_5th_macTests";
+			sourceTree = "<group>";
+		};
+		0B231D512E1D3DF000B8E96E /* Wi-Fi_analyzer_5th_macUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Wi-Fi_analyzer_5th_macUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0B231D2C2E1D3DEC00B8E96E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B231D412E1D3DF000B8E96E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B231D4B2E1D3DF000B8E96E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B231D262E1D3DEC00B8E96E = {
+			isa = PBXGroup;
+			children = (
+				0B231D312E1D3DEC00B8E96E /* Wi-Fi_analyzer_5th_mac */,
+				0B231D472E1D3DF000B8E96E /* Wi-Fi_analyzer_5th_macTests */,
+				0B231D512E1D3DF000B8E96E /* Wi-Fi_analyzer_5th_macUITests */,
+				0B231D302E1D3DEC00B8E96E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0B231D302E1D3DEC00B8E96E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B231D2F2E1D3DEC00B8E96E /* Wi-Fi_analyzer_5th_mac.app */,
+				0B231D442E1D3DF000B8E96E /* Wi-Fi_analyzer_5th_macTests.xctest */,
+				0B231D4E2E1D3DF000B8E96E /* Wi-Fi_analyzer_5th_macUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0B231D2E2E1D3DEC00B8E96E /* Wi-Fi_analyzer_5th_mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B231D582E1D3DF000B8E96E /* Build configuration list for PBXNativeTarget "Wi-Fi_analyzer_5th_mac" */;
+			buildPhases = (
+				0B231D2B2E1D3DEC00B8E96E /* Sources */,
+				0B231D2C2E1D3DEC00B8E96E /* Frameworks */,
+				0B231D2D2E1D3DEC00B8E96E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0B231D312E1D3DEC00B8E96E /* Wi-Fi_analyzer_5th_mac */,
+			);
+			name = "Wi-Fi_analyzer_5th_mac";
+			packageProductDependencies = (
+			);
+			productName = "Wi-Fi_analyzer_5th_mac";
+			productReference = 0B231D2F2E1D3DEC00B8E96E /* Wi-Fi_analyzer_5th_mac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0B231D432E1D3DF000B8E96E /* Wi-Fi_analyzer_5th_macTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B231D5B2E1D3DF000B8E96E /* Build configuration list for PBXNativeTarget "Wi-Fi_analyzer_5th_macTests" */;
+			buildPhases = (
+				0B231D402E1D3DF000B8E96E /* Sources */,
+				0B231D412E1D3DF000B8E96E /* Frameworks */,
+				0B231D422E1D3DF000B8E96E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B231D462E1D3DF000B8E96E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				0B231D472E1D3DF000B8E96E /* Wi-Fi_analyzer_5th_macTests */,
+			);
+			name = "Wi-Fi_analyzer_5th_macTests";
+			packageProductDependencies = (
+			);
+			productName = "Wi-Fi_analyzer_5th_macTests";
+			productReference = 0B231D442E1D3DF000B8E96E /* Wi-Fi_analyzer_5th_macTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0B231D4D2E1D3DF000B8E96E /* Wi-Fi_analyzer_5th_macUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B231D5E2E1D3DF000B8E96E /* Build configuration list for PBXNativeTarget "Wi-Fi_analyzer_5th_macUITests" */;
+			buildPhases = (
+				0B231D4A2E1D3DF000B8E96E /* Sources */,
+				0B231D4B2E1D3DF000B8E96E /* Frameworks */,
+				0B231D4C2E1D3DF000B8E96E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B231D502E1D3DF000B8E96E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				0B231D512E1D3DF000B8E96E /* Wi-Fi_analyzer_5th_macUITests */,
+			);
+			name = "Wi-Fi_analyzer_5th_macUITests";
+			packageProductDependencies = (
+			);
+			productName = "Wi-Fi_analyzer_5th_macUITests";
+			productReference = 0B231D4E2E1D3DF000B8E96E /* Wi-Fi_analyzer_5th_macUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0B231D272E1D3DEC00B8E96E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					0B231D2E2E1D3DEC00B8E96E = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					0B231D432E1D3DF000B8E96E = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 0B231D2E2E1D3DEC00B8E96E;
+					};
+					0B231D4D2E1D3DF000B8E96E = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 0B231D2E2E1D3DEC00B8E96E;
+					};
+				};
+			};
+			buildConfigurationList = 0B231D2A2E1D3DEC00B8E96E /* Build configuration list for PBXProject "Wi-Fi_analyzer_5th_mac" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0B231D262E1D3DEC00B8E96E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 0B231D302E1D3DEC00B8E96E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0B231D2E2E1D3DEC00B8E96E /* Wi-Fi_analyzer_5th_mac */,
+				0B231D432E1D3DF000B8E96E /* Wi-Fi_analyzer_5th_macTests */,
+				0B231D4D2E1D3DF000B8E96E /* Wi-Fi_analyzer_5th_macUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0B231D2D2E1D3DEC00B8E96E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B231D422E1D3DF000B8E96E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B231D4C2E1D3DF000B8E96E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B231D2B2E1D3DEC00B8E96E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B231D402E1D3DF000B8E96E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0B231D4A2E1D3DF000B8E96E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0B231D462E1D3DF000B8E96E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B231D2E2E1D3DEC00B8E96E /* Wi-Fi_analyzer_5th_mac */;
+			targetProxy = 0B231D452E1D3DF000B8E96E /* PBXContainerItemProxy */;
+		};
+		0B231D502E1D3DF000B8E96E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B231D2E2E1D3DEC00B8E96E /* Wi-Fi_analyzer_5th_mac */;
+			targetProxy = 0B231D4F2E1D3DF000B8E96E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0B231D562E1D3DF000B8E96E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		0B231D572E1D3DF000B8E96E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		0B231D592E1D3DF000B8E96E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Wi-Fi_analyzer_5th_mac/Wi_Fi_analyzer_5th_mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "MK.Wi-Fi-analyzer-5th-mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		0B231D5A2E1D3DF000B8E96E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Wi-Fi_analyzer_5th_mac/Wi_Fi_analyzer_5th_mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "MK.Wi-Fi-analyzer-5th-mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+		0B231D5C2E1D3DF000B8E96E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "MK.Wi-Fi-analyzer-5th-macTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wi-Fi_analyzer_5th_mac.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Wi-Fi_analyzer_5th_mac";
+			};
+			name = Debug;
+		};
+		0B231D5D2E1D3DF000B8E96E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "MK.Wi-Fi-analyzer-5th-macTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wi-Fi_analyzer_5th_mac.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Wi-Fi_analyzer_5th_mac";
+			};
+			name = Release;
+		};
+		0B231D5F2E1D3DF000B8E96E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "MK.Wi-Fi-analyzer-5th-macUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_TARGET_NAME = "Wi-Fi_analyzer_5th_mac";
+			};
+			name = Debug;
+		};
+		0B231D602E1D3DF000B8E96E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "MK.Wi-Fi-analyzer-5th-macUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_TARGET_NAME = "Wi-Fi_analyzer_5th_mac";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B231D2A2E1D3DEC00B8E96E /* Build configuration list for PBXProject "Wi-Fi_analyzer_5th_mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B231D562E1D3DF000B8E96E /* Debug */,
+				0B231D572E1D3DF000B8E96E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B231D582E1D3DF000B8E96E /* Build configuration list for PBXNativeTarget "Wi-Fi_analyzer_5th_mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B231D592E1D3DF000B8E96E /* Debug */,
+				0B231D5A2E1D3DF000B8E96E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B231D5B2E1D3DF000B8E96E /* Build configuration list for PBXNativeTarget "Wi-Fi_analyzer_5th_macTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B231D5C2E1D3DF000B8E96E /* Debug */,
+				0B231D5D2E1D3DF000B8E96E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B231D5E2E1D3DF000B8E96E /* Build configuration list for PBXNativeTarget "Wi-Fi_analyzer_5th_macUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B231D5F2E1D3DF000B8E96E /* Debug */,
+				0B231D602E1D3DF000B8E96E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0B231D272E1D3DEC00B8E96E /* Project object */;
+}
