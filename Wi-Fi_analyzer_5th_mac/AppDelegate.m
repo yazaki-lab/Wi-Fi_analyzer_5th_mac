@@ -9,16 +9,35 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h" // ViewControllerをインポート
 
 @interface AppDelegate ()
+
+// ウィンドウをプロパティとして保持
+@property (strong, nonatomic) NSWindow *window;
 
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // 位置情報サービスの許可を要求（macOS 10.15以降でWi-Fi情報にアクセスするため）
+    // 位置情報サービスの許可を要求
     [self requestLocationPermission];
+
+    // ウィンドウを作成
+    self.window = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, 800, 600)
+                                              styleMask:(NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable)
+                                                backing:NSBackingStoreBuffered
+                                                  defer:NO];
+    [self.window setTitle:@"Wi-Fi Analyzer"];
+    [self.window center];
+
+    // ViewControllerをインスタンス化してウィンドウに設定
+    ViewController *viewController = [[ViewController alloc] init];
+    self.window.contentViewController = viewController;
+
+    // ウィンドウを表示
+    [self.window makeKeyAndOrderFront:nil];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -29,30 +48,17 @@
     return YES;
 }
 
+// 以下、位置情報関連のコードは変更なし
 - (void)requestLocationPermission {
-    // 位置情報マネージャーを初期化
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    
-    // 位置情報の許可状態を確認
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-    
-    switch (status) {
-        case kCLAuthorizationStatusNotDetermined:
-            // macOSでは自動的に許可を要求
-            NSLog(@"位置情報の許可状態: 未決定");
-            break;
-            
-        case kCLAuthorizationStatusDenied:
-        case kCLAuthorizationStatusRestricted:
-            // 許可が拒否されている場合の処理
-            [self showLocationPermissionAlert];
-            break;
-            
-        case kCLAuthorizationStatusAuthorizedAlways:
-            // macOSでは常に許可のみ
-            NSLog(@"位置情報の使用が許可されています");
-            break;
+    if (status == kCLAuthorizationStatusNotDetermined) {
+         NSLog(@"位置情報の許可状態: 未決定");
+    } else if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusRestricted) {
+        [self showLocationPermissionAlert];
+    } else {
+        NSLog(@"位置情報の使用が許可されています");
     }
 }
 
@@ -67,7 +73,6 @@
     NSModalResponse response = [alert runModal];
     
     if (response == NSAlertSecondButtonReturn) {
-        // システム環境設定を開く
         [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"x-apple.systempreferences:com.apple.preference.security?Privacy_LocationServices"]];
     }
 }
@@ -75,22 +80,11 @@
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    switch (status) {
-        case kCLAuthorizationStatusAuthorizedAlways:
-            // macOSでは常に許可のみ
-            NSLog(@"位置情報の使用が許可されました");
-            break;
-            
-        case kCLAuthorizationStatusDenied:
-        case kCLAuthorizationStatusRestricted:
-            [self showLocationPermissionAlert];
-            break;
-            
-        case kCLAuthorizationStatusNotDetermined:
-            // まだ決定されていない
-            break;
+    if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusRestricted) {
+        [self showLocationPermissionAlert];
+    } else if (status == kCLAuthorizationStatusAuthorizedAlways) {
+        NSLog(@"位置情報の使用が許可されました");
     }
 }
 
 @end
-

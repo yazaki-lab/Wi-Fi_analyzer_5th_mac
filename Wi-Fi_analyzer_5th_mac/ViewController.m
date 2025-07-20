@@ -11,15 +11,35 @@
 
 #import "ViewController.h"
 
+//
+//  ViewController.m
+//
+
+#import "ViewController.h"
+
 @interface ViewController () <NSTableViewDataSource, NSTableViewDelegate>
 
+// Wi-Fi関連のプロパティ
 @property (strong, nonatomic) CWWiFiClient *wifiClient;
 @property (strong, nonatomic) NSArray<CWNetwork *> *scanResults;
 @property (strong, nonatomic) NSMutableArray<NSDictionary *> *displayData;
 
+// UI要素のプロパティ
+@property (strong, nonatomic) NSButton *scanButton;
+@property (strong, nonatomic) NSTextField *currentSSIDLabel;
+@property (strong, nonatomic) NSTextField *currentBSSIDLabel;
+@property (strong, nonatomic) NSTableView *scanResultsTableView;
+@property (strong, nonatomic) NSScrollView *tableScrollView;
+
 @end
 
 @implementation ViewController
+
+// loadViewメソッドでプログラムによるUI構築を行う
+- (void)loadView {
+    // ViewControllerのルートとなるビューを作成
+    self.view = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 800, 600)];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,12 +48,83 @@
     self.wifiClient = [[CWWiFiClient alloc] init];
     self.displayData = [[NSMutableArray alloc] init];
     
-    // テーブルビューの設定
-    [self setupTableView];
+    // UIコンポーネントをセットアップ
+    [self setupUI];
     
     // 現在の接続情報を取得
     [self getCurrentWiFiInfo];
 }
+
+- (void)setupUI {
+    // --- ラベルの作成 ---
+    self.currentSSIDLabel = [self createLabelWithText:@"現在のSSID:"];
+    self.currentBSSIDLabel = [self createLabelWithText:@"現在のBSSID:"];
+    
+    // --- ボタンの作成 ---
+    self.scanButton = [[NSButton alloc] init];
+    self.scanButton.title = @"Wi-Fiスキャン";
+    self.scanButton.bezelStyle = NSBezelStyleRounded;
+    self.scanButton.target = self;
+    self.scanButton.action = @selector(scanButtonPressed:);
+    
+    // --- テーブルビューの作成 ---
+    self.scanResultsTableView = [[NSTableView alloc] init];
+    [self setupTableView]; // テーブルビューの初期設定
+
+    // テーブルビューをスクロール可能にする
+    self.tableScrollView = [[NSScrollView alloc] init];
+    self.tableScrollView.documentView = self.scanResultsTableView;
+    self.tableScrollView.hasVerticalScroller = YES;
+
+    // --- UI要素をビューに追加 ---
+    [self.view addSubview:self.currentSSIDLabel];
+    [self.view addSubview:self.currentBSSIDLabel];
+    [self.view addSubview:self.scanButton];
+    [self.view addSubview:self.tableScrollView];
+    
+    // --- Auto Layoutで制約を設定 ---
+    [self setupConstraints];
+}
+
+- (NSTextField *)createLabelWithText:(NSString *)text {
+    NSTextField *label = [[NSTextField alloc] init];
+    label.stringValue = text;
+    label.bezeled = NO;
+    label.drawsBackground = NO;
+    label.editable = NO;
+    label.selectable = NO;
+    return label;
+}
+
+- (void)setupConstraints {
+    // Auto Layoutを有効にする
+    self.currentSSIDLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.currentBSSIDLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.scanButton.translatesAutoresizingMaskIntoConstraints = NO;
+    self.tableScrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    // 制約を有効化
+    [NSLayoutConstraint activateConstraints:@[
+        // 現在のSSIDラベル
+        [self.currentSSIDLabel.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:20],
+        [self.currentSSIDLabel.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:20],
+        
+        // 現在のBSSIDラベル
+        [self.currentBSSIDLabel.topAnchor constraintEqualToAnchor:self.currentSSIDLabel.bottomAnchor constant:8],
+        [self.currentBSSIDLabel.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:20],
+        
+        // スキャンボタン
+        [self.scanButton.topAnchor constraintEqualToAnchor:self.currentBSSIDLabel.bottomAnchor constant:20],
+        [self.scanButton.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:20],
+        
+        // テーブルビュー（スクロールビュー）
+        [self.tableScrollView.topAnchor constraintEqualToAnchor:self.scanButton.bottomAnchor constant:20],
+        [self.tableScrollView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:20],
+        [self.tableScrollView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-20],
+        [self.tableScrollView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-20]
+    ]];
+}
+
 
 - (void)setupTableView {
     // テーブルビューのカラムを設定
@@ -49,7 +140,7 @@
     
     NSTableColumn *rssiColumn = [[NSTableColumn alloc] initWithIdentifier:@"RSSI"];
     rssiColumn.title = @"RSSI";
-    rssiColumn.width = 80;
+    rssiColumn.width = 100;
     [self.scanResultsTableView addTableColumn:rssiColumn];
     
     self.scanResultsTableView.dataSource = self;
@@ -58,21 +149,16 @@
 
 - (void)getCurrentWiFiInfo {
     // 現在の接続情報を取得
-    NSSet *interfaceNames = [CWWiFiClient interfaceNames];
+    CWInterface *interface = [CWWiFiClient sharedWiFiClient].interface;
     
-    if (interfaceNames.count > 0) {
-        NSString *interfaceName = [interfaceNames anyObject];
-        CWInterface *interface = [self.wifiClient interfaceWithName:interfaceName];
+    if (interface) {
+        NSString *currentSSID = interface.ssid ?: @"未接続";
+        NSString *currentBSSID = interface.bssid ?: @"未接続";
         
-        if (interface) {
-            NSString *currentSSID = interface.ssid ?: @"未接続";
-            NSString *currentBSSID = interface.bssid ?: @"未接続";
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.currentSSIDLabel.stringValue = [NSString stringWithFormat:@"現在のSSID: %@", currentSSID];
-                self.currentBSSIDLabel.stringValue = [NSString stringWithFormat:@"現在のBSSID: %@", currentBSSID];
-            });
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.currentSSIDLabel.stringValue = [NSString stringWithFormat:@"現在のSSID: %@", currentSSID];
+            self.currentBSSIDLabel.stringValue = [NSString stringWithFormat:@"現在のBSSID: %@", currentBSSID];
+        });
     } else {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.currentSSIDLabel.stringValue = @"現在のSSID: Wi-Fiインターフェースが見つかりません";
@@ -81,21 +167,19 @@
     }
 }
 
-- (IBAction)scanButtonPressed:(id)sender {
-    // スキャンボタンを無効化
+// scanButtonPressedのIBActionをvoidに変更
+- (void)scanButtonPressed:(id)sender {
     self.scanButton.enabled = NO;
     self.scanButton.title = @"スキャン中...";
     
-    // バックグラウンドでスキャンを実行
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self performWiFiScan];
     });
 }
 
 - (void)performWiFiScan {
-    // Wi-Fiインターフェースを取得
-    NSSet *interfaceNames = [CWWiFiClient interfaceNames];
-    if (interfaceNames.count == 0) {
+    CWInterface *interface = [CWWiFiClient sharedWiFiClient].interface;
+    if (!interface) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self showAlert:@"Wi-Fiインターフェースが見つかりません"];
             [self resetScanButton];
@@ -103,18 +187,6 @@
         return;
     }
     
-    NSString *interfaceName = [interfaceNames anyObject];
-    CWInterface *interface = [self.wifiClient interfaceWithName:interfaceName];
-    
-    if (!interface) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self showAlert:@"Wi-Fiインターフェースの取得に失敗しました"];
-            [self resetScanButton];
-        });
-        return;
-    }
-    
-    // スキャンを実行
     NSError *error;
     NSSet<CWNetwork *> *networks = [interface scanForNetworksWithName:nil error:&error];
     
@@ -126,12 +198,10 @@
         return;
     }
     
-    // 結果を配列に変換してソート
     self.scanResults = [[networks allObjects] sortedArrayUsingComparator:^NSComparisonResult(CWNetwork *network1, CWNetwork *network2) {
         return [@(network2.rssiValue) compare:@(network1.rssiValue)];
     }];
     
-    // 表示用データを準備
     [self.displayData removeAllObjects];
     for (CWNetwork *network in self.scanResults) {
         NSDictionary *networkInfo = @{
@@ -142,12 +212,9 @@
         [self.displayData addObject:networkInfo];
     }
     
-    // UIを更新
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.scanResultsTableView reloadData];
         [self resetScanButton];
-        
-        // 現在の接続情報も更新
         [self getCurrentWiFiInfo];
     });
 }
@@ -182,21 +249,23 @@
     NSDictionary *networkInfo = self.displayData[row];
     NSString *identifier = tableColumn.identifier;
     
+    // セルビューを再利用または新規作成
     NSTableCellView *cellView = [tableView makeViewWithIdentifier:identifier owner:self];
     if (!cellView) {
         cellView = [[NSTableCellView alloc] init];
+        cellView.identifier = identifier;
         
         NSTextField *textField = [[NSTextField alloc] init];
         textField.bordered = NO;
         textField.backgroundColor = [NSColor clearColor];
         textField.editable = NO;
         textField.selectable = YES;
+        textField.translatesAutoresizingMaskIntoConstraints = NO;
         
         [cellView addSubview:textField];
         cellView.textField = textField;
         
         // Auto Layoutの設定
-        textField.translatesAutoresizingMaskIntoConstraints = NO;
         [NSLayoutConstraint activateConstraints:@[
             [textField.leadingAnchor constraintEqualToAnchor:cellView.leadingAnchor constant:5],
             [textField.trailingAnchor constraintEqualToAnchor:cellView.trailingAnchor constant:-5],
@@ -210,4 +279,3 @@
 }
 
 @end
-
